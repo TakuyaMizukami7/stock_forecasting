@@ -1,0 +1,15 @@
+streamlit
+yfinance
+pandas
+scikit-learn
+plotly
+google-api-python-client
+gspread
+python-dotenv
+feedparser
+lightgbm
+xgboost
+openai
+bcrypt
+numpy
+altair
