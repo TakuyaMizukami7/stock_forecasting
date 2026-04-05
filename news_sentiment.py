@@ -31,15 +31,16 @@ def get_openai_client() -> OpenAI | None:
                 api_key = st.secrets["OPENAI_API_KEY"]
             elif "OPENAI_API" in st.secrets:
                 api_key = st.secrets["OPENAI_API"]
-        except ImportError:
+        except (ImportError, Exception):
             pass
-        except FileNotFoundError:
-            pass
-        except Exception as e:
-            print(f"Secrets 読み込みエラー: {e}")
 
     if not api_key:
         return None
+    
+    # 改行や空白が混入している場合を除去（Streamlit Secretsのコピペミス対策）
+    if isinstance(api_key, str):
+        api_key = api_key.replace("\n", "").replace("\r", "").strip()
+
     return OpenAI(api_key=api_key)
 
 
