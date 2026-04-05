@@ -827,7 +827,30 @@ def main():
 
             if result.get("error"):
                 st.error(f"❌ エラー: {result['error']}")
-                cached_sentiment_analysis.clear() # エラー時はキャッシュを破棄して再試行可能にする
+                cached_sentiment_analysis.clear()
+                # ── 診断情報 ──────────────────────────────────────────
+                with st.expander("🔍 診断情報（Streamlit Secretsの確認）", expanded=True):
+                    st.markdown("**Streamlit Cloud の Secrets に設定されているキー一覧:**")
+                    try:
+                        secret_keys = list(st.secrets.keys())
+                        if secret_keys:
+                            st.success(f"読み込まれているキー: `{'`, `'.join(secret_keys)}`")
+                            openai_keys = [k for k in secret_keys if "OPENAI" in k.upper()]
+                            if openai_keys:
+                                st.info(f"✅ OpenAI関連キーが見つかりました: `{'`, `'.join(openai_keys)}`")
+                            else:
+                                st.warning("⚠ `OPENAI_API_KEY` または `OPENAI_API` キーが Secrets に見つかりません。")
+                        else:
+                            st.error("Secrets に何も設定されていません。")
+                    except Exception as diag_e:
+                        st.error(f"Secrets の読み取りエラー: `{diag_e}`")
+                    
+                    st.markdown("---")
+                    st.markdown("**✅ Streamlit Cloud での正しい設定方法:**")
+                    st.code(
+                        'OPENAI_API_KEY = "sk-proj-xxxx..."  ← この1行をSecretsに追加してください',
+                        language="toml"
+                    )
             else:
                 analysis = result["analysis"]
                 news_list = result["news"]
