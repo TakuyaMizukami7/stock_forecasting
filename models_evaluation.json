@@ -1,0 +1,18 @@
+{
+  "LightGBM": {
+    "avg_rmse": 1235.5332871963224,
+    "avg_dir_acc": 52.16985103844238
+  },
+  "XGBoost": {
+    "avg_rmse": 1240.7981502600517,
+    "avg_dir_acc": 51.97884246166973
+  },
+  "Random Forest": {
+    "avg_rmse": 1388.7373115755306,
+    "avg_dir_acc": 50.424849274525734
+  },
+  "metadata": {
+    "evaluated_companies": 100,
+    "timestamp": "2026-04-03T10:00:30.440726"
+  }
+}

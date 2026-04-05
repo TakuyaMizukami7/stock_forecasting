@@ -164,7 +164,7 @@ convert_secrets.py
 !app_config.json
 !TICKERS.json
 !requirements.txt
-top_100_ranking_v2.json
-models_evaluation.json
-precomputed_accuracy.json
+!top_100_ranking_v2.json
+!models_evaluation.json
+!precomputed_accuracy.json
 export_log.txt

@@ -1,0 +1,1906 @@
+{
+  "timestamp": "2026-04-05 15:46:52",
+  "global_sentiment": -0.3333,
+  "ranking": [
+    {
+      "ticker": "7203.T",
+      "name": "トヨタ自動車",
+      "current_price": 3255.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2974.972991758805,
+          "predicted_return": -0.0860298028390768
+        },
+        "XGBoost": {
+          "predicted_price": 2940.29736328125,
+          "predicted_return": -0.0966828465461731
+        },
+        "Random Forest": {
+          "predicted_price": 3540.1650647546903,
+          "predicted_return": 0.0876083148247897
+        }
+      }
+    },
+    {
+      "ticker": "6758.T",
+      "name": "ソニーグループ",
+      "current_price": 3324.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2560.49188228788,
+          "predicted_return": -0.22969558294588455
+        },
+        "XGBoost": {
+          "predicted_price": 2485.5009765625,
+          "predicted_return": -0.25225603580474854
+        },
+        "Random Forest": {
+          "predicted_price": 2466.003271327284,
+          "predicted_return": -0.2581217595284946
+        }
+      }
+    },
+    {
+      "ticker": "9984.T",
+      "name": "ソフトバンクグループ",
+      "current_price": 3609.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1914.6258872123522,
+          "predicted_return": -0.46948576137091935
+        },
+        "XGBoost": {
+          "predicted_price": 1926.6744384765625,
+          "predicted_return": -0.4661473035812378
+        },
+        "Random Forest": {
+          "predicted_price": 1912.6520917658738,
+          "predicted_return": -0.4700326706107304
+        }
+      }
+    },
+    {
+      "ticker": "9432.T",
+      "name": "日本電信電話",
+      "current_price": 157.8000031,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 154.076244537391,
+          "predicted_return": -0.023597962544076756
+        },
+        "XGBoost": {
+          "predicted_price": 152.51205444335938,
+          "predicted_return": -0.033510446548461914
+        },
+        "Random Forest": {
+          "predicted_price": 161.1454989553208,
+          "predicted_return": 0.021200860517098352
+        }
+      }
+    },
+    {
+      "ticker": "8306.T",
+      "name": "三菱UFJFG",
+      "current_price": 2761.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1511.5114601329203,
+          "predicted_return": -0.4526483939406408
+        },
+        "XGBoost": {
+          "predicted_price": 1518.161376953125,
+          "predicted_return": -0.4502403140068054
+        },
+        "Random Forest": {
+          "predicted_price": 1520.073678391053,
+          "predicted_return": -0.44954782603981425
+        }
+      }
+    },
+    {
+      "ticker": "6861.T",
+      "name": "キーエンス",
+      "current_price": 57730.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 58049.3453242027,
+          "predicted_return": 0.00553170490564181
+        },
+        "XGBoost": {
+          "predicted_price": 57925.48046875,
+          "predicted_return": 0.0033861398696899414
+        },
+        "Random Forest": {
+          "predicted_price": 59700.32666962562,
+          "predicted_return": 0.034130030653483745
+        }
+      }
+    },
+    {
+      "ticker": "6098.T",
+      "name": "リクルートHD",
+      "current_price": 6942.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 5554.031222377735,
+          "predicted_return": -0.19993788211210972
+        },
+        "XGBoost": {
+          "predicted_price": 5411.6376953125,
+          "predicted_return": -0.22044974565505981
+        },
+        "Random Forest": {
+          "predicted_price": 4906.748822659367,
+          "predicted_return": -0.29317936867482475
+        }
+      }
+    },
+    {
+      "ticker": "4063.T",
+      "name": "信越化学工業",
+      "current_price": 6450.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 5855.741538892447,
+          "predicted_return": -0.09213309474535702
+        },
+        "XGBoost": {
+          "predicted_price": 5941.8671875,
+          "predicted_return": -0.07878029346466064
+        },
+        "Random Forest": {
+          "predicted_price": 6483.496101190476,
+          "predicted_return": 0.0051931939830196505
+        }
+      }
+    },
+    {
+      "ticker": "8035.T",
+      "name": "東京エレクトロン",
+      "current_price": 38420.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 31190.72425817812,
+          "predicted_return": -0.18816438682514003
+        },
+        "XGBoost": {
+          "predicted_price": 31202.67578125,
+          "predicted_return": -0.18785333633422852
+        },
+        "Random Forest": {
+          "predicted_price": 38219.104067460314,
+          "predicted_return": -0.005228941502854911
+        }
+      }
+    },
+    {
+      "ticker": "7974.T",
+      "name": "任天堂",
+      "current_price": 8736.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 7836.231455835628,
+          "predicted_return": -0.10299548353529897
+        },
+        "XGBoost": {
+          "predicted_price": 7772.197265625,
+          "predicted_return": -0.1103253960609436
+        },
+        "Random Forest": {
+          "predicted_price": 7832.7980907287165,
+          "predicted_return": -0.1033884969403942
+        }
+      }
+    },
+    {
+      "ticker": "8001.T",
+      "name": "伊藤忠商事",
+      "current_price": 2042.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1351.8333762964944,
+          "predicted_return": -0.3379856139586217
+        },
+        "XGBoost": {
+          "predicted_price": 1327.852294921875,
+          "predicted_return": -0.3497295379638672
+        },
+        "Random Forest": {
+          "predicted_price": 1323.2333436863007,
+          "predicted_return": -0.35199150651993105
+        }
+      }
+    },
+    {
+      "ticker": "7267.T",
+      "name": "ホンダ",
+      "current_price": 1269.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1525.7741772537618,
+          "predicted_return": 0.20234371730004863
+        },
+        "XGBoost": {
+          "predicted_price": 1463.8602294921875,
+          "predicted_return": 0.15355420112609863
+        },
+        "Random Forest": {
+          "predicted_price": 1714.7317796262714,
+          "predicted_return": 0.35124647724686486
+        }
+      }
+    },
+    {
+      "ticker": "8316.T",
+      "name": "三井住友FG",
+      "current_price": 5373.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2929.19451921472,
+          "predicted_return": -0.45483072413647496
+        },
+        "XGBoost": {
+          "predicted_price": 2874.355712890625,
+          "predicted_return": -0.46503710746765137
+        },
+        "Random Forest": {
+          "predicted_price": 2905.01164235433,
+          "predicted_return": -0.4593315387391904
+        }
+      }
+    },
+    {
+      "ticker": "6902.T",
+      "name": "デンソー",
+      "current_price": 1923.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2113.908064891653,
+          "predicted_return": 0.09927616479025114
+        },
+        "XGBoost": {
+          "predicted_price": 2041.5816650390625,
+          "predicted_return": 0.06166493892669678
+        },
+        "Random Forest": {
+          "predicted_price": 2478.359198040277,
+          "predicted_return": 0.2887983349143406
+        }
+      }
+    },
+    {
+      "ticker": "4502.T",
+      "name": "武田薬品工業",
+      "current_price": 5802.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 5577.981304096712,
+          "predicted_return": -0.03861059908708864
+        },
+        "XGBoost": {
+          "predicted_price": 5498.6943359375,
+          "predicted_return": -0.05227607488632202
+        },
+        "Random Forest": {
+          "predicted_price": 5773.730696027089,
+          "predicted_return": -0.004872337809877836
+        }
+      }
+    },
+    {
+      "ticker": "6954.T",
+      "name": "ファナック",
+      "current_price": 5517.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4906.5210864842165,
+          "predicted_return": -0.11065414419354425
+        },
+        "XGBoost": {
+          "predicted_price": 4780.9072265625,
+          "predicted_return": -0.13342267274856567
+        },
+        "Random Forest": {
+          "predicted_price": 4681.677766336605,
+          "predicted_return": -0.15140877898557104
+        }
+      }
+    },
+    {
+      "ticker": "6501.T",
+      "name": "日立製作所",
+      "current_price": 4811.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2725.8424322394285,
+          "predicted_return": -0.4334145848598153
+        },
+        "XGBoost": {
+          "predicted_price": 2694.18603515625,
+          "predicted_return": -0.43999457359313965
+        },
+        "Random Forest": {
+          "predicted_price": 2757.835654761904,
+          "predicted_return": -0.42676456978551147
+        }
+      }
+    },
+    {
+      "ticker": "8411.T",
+      "name": "みずほFG",
+      "current_price": 6468.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2953.1216874853976,
+          "predicted_return": -0.5434258368142552
+        },
+        "XGBoost": {
+          "predicted_price": 2901.786376953125,
+          "predicted_return": -0.5513626337051392
+        },
+        "Random Forest": {
+          "predicted_price": 2921.8681400613277,
+          "predicted_return": -0.5482578633176673
+        }
+      }
+    },
+    {
+      "ticker": "6367.T",
+      "name": "ダイキン工業",
+      "current_price": 19765.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 18962.958479047047,
+          "predicted_return": -0.04057887786253245
+        },
+        "XGBoost": {
+          "predicted_price": 19154.185546875,
+          "predicted_return": -0.03090381622314453
+        },
+        "Random Forest": {
+          "predicted_price": 20899.98627199333,
+          "predicted_return": 0.05742404614183294
+        }
+      }
+    },
+    {
+      "ticker": "4568.T",
+      "name": "第一三共",
+      "current_price": 2863.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3197.8606430283394,
+          "predicted_return": 0.11676641977591729
+        },
+        "XGBoost": {
+          "predicted_price": 3258.729248046875,
+          "predicted_return": 0.13802313804626465
+        },
+        "Random Forest": {
+          "predicted_price": 3464.4058706880933,
+          "predicted_return": 0.2098501381833746
+        }
+      }
+    },
+    {
+      "ticker": "8031.T",
+      "name": "三井物産",
+      "current_price": 6381.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3606.161966762986,
+          "predicted_return": -0.43485943163093776
+        },
+        "XGBoost": {
+          "predicted_price": 3466.6708984375,
+          "predicted_return": -0.4567198157310486
+        },
+        "Random Forest": {
+          "predicted_price": 3659.4923263888886,
+          "predicted_return": -0.4265017510752408
+        }
+      }
+    },
+    {
+      "ticker": "6594.T",
+      "name": "ニデック",
+      "current_price": 2184.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2888.1920009147248,
+          "predicted_return": 0.3224322348510644
+        },
+        "XGBoost": {
+          "predicted_price": 2690.212890625,
+          "predicted_return": 0.2317824363708496
+        },
+        "Random Forest": {
+          "predicted_price": 3095.0031428571438,
+          "predicted_return": 0.41712598116169586
+        }
+      }
+    },
+    {
+      "ticker": "3382.T",
+      "name": "セブン＆アイ・HD",
+      "current_price": 2180.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2087.5936908581043,
+          "predicted_return": -0.042388215202704416
+        },
+        "XGBoost": {
+          "predicted_price": 1990.046142578125,
+          "predicted_return": -0.08713477849960327
+        },
+        "Random Forest": {
+          "predicted_price": 2058.575349037624,
+          "predicted_return": -0.05569938117540174
+        }
+      }
+    },
+    {
+      "ticker": "6702.T",
+      "name": "富士通",
+      "current_price": 3273.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2457.747807619948,
+          "predicted_return": -0.24908407955394185
+        },
+        "XGBoost": {
+          "predicted_price": 2439.59423828125,
+          "predicted_return": -0.25463056564331055
+        },
+        "Random Forest": {
+          "predicted_price": 2472.6010527319904,
+          "predicted_return": -0.24454596616804447
+        }
+      }
+    },
+    {
+      "ticker": "8058.T",
+      "name": "三菱商事",
+      "current_price": 5475.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3285.581804823141,
+          "predicted_return": -0.3998937342788784
+        },
+        "XGBoost": {
+          "predicted_price": 3340.943359375,
+          "predicted_return": -0.38978201150894165
+        },
+        "Random Forest": {
+          "predicted_price": 3484.664566197692,
+          "predicted_return": -0.3635315860826134
+        }
+      }
+    },
+    {
+      "ticker": "2914.T",
+      "name": "日本たばこ産業",
+      "current_price": 6105.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4129.300567166358,
+          "predicted_return": -0.3236198907180413
+        },
+        "XGBoost": {
+          "predicted_price": 4090.62841796875,
+          "predicted_return": -0.3299543857574463
+        },
+        "Random Forest": {
+          "predicted_price": 4135.780912698416,
+          "predicted_return": -0.3225584090584086
+        }
+      }
+    },
+    {
+      "ticker": "9433.T",
+      "name": "KDDI",
+      "current_price": 2745.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2283.296910074007,
+          "predicted_return": -0.1681978469675749
+        },
+        "XGBoost": {
+          "predicted_price": 2241.659912109375,
+          "predicted_return": -0.18336617946624756
+        },
+        "Random Forest": {
+          "predicted_price": 2268.3366627504442,
+          "predicted_return": -0.17364784599255223
+        }
+      }
+    },
+    {
+      "ticker": "7741.T",
+      "name": "HOYA",
+      "current_price": 27575.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 15723.30782535178,
+          "predicted_return": -0.4297984469500714
+        },
+        "XGBoost": {
+          "predicted_price": 15553.78125,
+          "predicted_return": -0.4359462857246399
+        },
+        "Random Forest": {
+          "predicted_price": 15746.827103174608,
+          "predicted_return": -0.428945526630114
+        }
+      }
+    },
+    {
+      "ticker": "6981.T",
+      "name": "村田製作所",
+      "current_price": 3789.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2704.50553709374,
+          "predicted_return": -0.28622181654955403
+        },
+        "XGBoost": {
+          "predicted_price": 2635.020751953125,
+          "predicted_return": -0.3045603632926941
+        },
+        "Random Forest": {
+          "predicted_price": 2781.9393370950943,
+          "predicted_return": -0.2657853425455017
+        }
+      }
+    },
+    {
+      "ticker": "4519.T",
+      "name": "中外製薬",
+      "current_price": 8779.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4865.080514806848,
+          "predicted_return": -0.4458274843596254
+        },
+        "XGBoost": {
+          "predicted_price": 4783.25146484375,
+          "predicted_return": -0.45514845848083496
+        },
+        "Random Forest": {
+          "predicted_price": 5082.074867965368,
+          "predicted_return": -0.42111005035136484
+        }
+      }
+    },
+    {
+      "ticker": "6920.T",
+      "name": "レーザーテック",
+      "current_price": 35860.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 31194.697948011355,
+          "predicted_return": -0.13009765900693382
+        },
+        "XGBoost": {
+          "predicted_price": 30465.8515625,
+          "predicted_return": -0.15042245388031006
+        },
+        "Random Forest": {
+          "predicted_price": 38135.21426466602,
+          "predicted_return": 0.06344713509944278
+        }
+      }
+    },
+    {
+      "ticker": "7182.T",
+      "name": "ゆうちょ銀行",
+      "current_price": 2628.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1572.3909122174455,
+          "predicted_return": -0.40179154947025086
+        },
+        "XGBoost": {
+          "predicted_price": 1553.20068359375,
+          "predicted_return": -0.40909236669540405
+        },
+        "Random Forest": {
+          "predicted_price": 1568.9140819805189,
+          "predicted_return": -0.40311429256970943
+        }
+      }
+    },
+    {
+      "ticker": "9983.T",
+      "name": "ファーストリテイリング",
+      "current_price": 64300.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 45325.25692735742,
+          "predicted_return": -0.29509709288713193
+        },
+        "XGBoost": {
+          "predicted_price": 44986.1796875,
+          "predicted_return": -0.300370454788208
+        },
+        "Random Forest": {
+          "predicted_price": 45133.47547438673,
+          "predicted_return": -0.29807969713239924
+        }
+      }
+    },
+    {
+      "ticker": "4661.T",
+      "name": "オリエンタルランド",
+      "current_price": 2732.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3385.8105243171963,
+          "predicted_return": 0.23908893845094092
+        },
+        "XGBoost": {
+          "predicted_price": 3257.392822265625,
+          "predicted_return": 0.19209253787994385
+        },
+        "Random Forest": {
+          "predicted_price": 3650.616887680097,
+          "predicted_return": 0.3359988609991207
+        }
+      }
+    },
+    {
+      "ticker": "6503.T",
+      "name": "三菱電機",
+      "current_price": 5306.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2509.060181526453,
+          "predicted_return": -0.5271277456602991
+        },
+        "XGBoost": {
+          "predicted_price": 2462.923095703125,
+          "predicted_return": -0.5358229875564575
+        },
+        "Random Forest": {
+          "predicted_price": 2492.1833670634924,
+          "predicted_return": -0.5303084494791759
+        }
+      }
+    },
+    {
+      "ticker": "4523.T",
+      "name": "エーザイ",
+      "current_price": 5027.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 7121.216218967318,
+          "predicted_return": 0.4165936381474673
+        },
+        "XGBoost": {
+          "predicted_price": 7481.3349609375,
+          "predicted_return": 0.4882305860519409
+        },
+        "Random Forest": {
+          "predicted_price": 7749.454956349207,
+          "predicted_return": 0.5415665319970573
+        }
+      }
+    },
+    {
+      "ticker": "8766.T",
+      "name": "東京海上HD",
+      "current_price": 7243.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4729.692544393698,
+          "predicted_return": -0.34699813000225077
+        },
+        "XGBoost": {
+          "predicted_price": 4735.58740234375,
+          "predicted_return": -0.34618425369262695
+        },
+        "Random Forest": {
+          "predicted_price": 4747.306269841269,
+          "predicted_return": -0.34456630265894395
+        }
+      }
+    },
+    {
+      "ticker": "6752.T",
+      "name": "パナソニックHD",
+      "current_price": 2715.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1462.2299079209704,
+          "predicted_return": -0.4614254482795689
+        },
+        "XGBoost": {
+          "predicted_price": 1405.490966796875,
+          "predicted_return": -0.4823237657546997
+        },
+        "Random Forest": {
+          "predicted_price": 1396.3559007936506,
+          "predicted_return": -0.4856884343301471
+        }
+      }
+    },
+    {
+      "ticker": "4543.T",
+      "name": "テルモ",
+      "current_price": 2182.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2155.47640993404,
+          "predicted_return": -0.012155632477525158
+        },
+        "XGBoost": {
+          "predicted_price": 2147.345703125,
+          "predicted_return": -0.015881896018981934
+        },
+        "Random Forest": {
+          "predicted_price": 2251.2506419130873,
+          "predicted_return": 0.031737232774100566
+        }
+      }
+    },
+    {
+      "ticker": "4005.T",
+      "name": "住友化学",
+      "current_price": 528.9000244,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 533.8260054750075,
+          "predicted_return": 0.009313633669417287
+        },
+        "XGBoost": {
+          "predicted_price": 527.1336059570312,
+          "predicted_return": -0.0033397674560546875
+        },
+        "Random Forest": {
+          "predicted_price": 530.8337901241825,
+          "predicted_return": 0.0036562027509381423
+        }
+      }
+    },
+    {
+      "ticker": "6146.T",
+      "name": "ディスコ",
+      "current_price": 65650.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 47520.45164523086,
+          "predicted_return": -0.27615458270783155
+        },
+        "XGBoost": {
+          "predicted_price": 48066.30078125,
+          "predicted_return": -0.26784002780914307
+        },
+        "Random Forest": {
+          "predicted_price": 53724.40648809522,
+          "predicted_return": -0.18165412813259374
+        }
+      }
+    },
+    {
+      "ticker": "4901.T",
+      "name": "富士フイルムHD",
+      "current_price": 3112.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3217.249355795915,
+          "predicted_return": 0.033820487080949535
+        },
+        "XGBoost": {
+          "predicted_price": 3099.214599609375,
+          "predicted_return": -0.004108428955078125
+        },
+        "Random Forest": {
+          "predicted_price": 3266.9374749016943,
+          "predicted_return": 0.04978710633087857
+        }
+      }
+    },
+    {
+      "ticker": "7269.T",
+      "name": "スズキ",
+      "current_price": 1832.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1398.2899601430584,
+          "predicted_return": -0.23694954426026826
+        },
+        "XGBoost": {
+          "predicted_price": 1429.429443359375,
+          "predicted_return": -0.219956636428833
+        },
+        "Random Forest": {
+          "predicted_price": 1360.6447748015871,
+          "predicted_return": -0.25749261948071644
+        }
+      }
+    },
+    {
+      "ticker": "5108.T",
+      "name": "ブリヂストン",
+      "current_price": 3337.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3300.8027997719387,
+          "predicted_return": -0.010847228117489172
+        },
+        "XGBoost": {
+          "predicted_price": 3283.962890625,
+          "predicted_return": -0.015893638134002686
+        },
+        "Random Forest": {
+          "predicted_price": 3325.8403998917756,
+          "predicted_return": -0.003344201410915293
+        }
+      }
+    },
+    {
+      "ticker": "8053.T",
+      "name": "住友商事",
+      "current_price": 6035.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3694.9124137870804,
+          "predicted_return": -0.3877527069118343
+        },
+        "XGBoost": {
+          "predicted_price": 3615.608642578125,
+          "predicted_return": -0.40089333057403564
+        },
+        "Random Forest": {
+          "predicted_price": 3745.6402613636374,
+          "predicted_return": -0.37934709836559444
+        }
+      }
+    },
+    {
+      "ticker": "9022.T",
+      "name": "JR東海",
+      "current_price": 4142.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3580.4913504308283,
+          "predicted_return": -0.1355646184377527
+        },
+        "XGBoost": {
+          "predicted_price": 3571.1435546875,
+          "predicted_return": -0.13782143592834473
+        },
+        "Random Forest": {
+          "predicted_price": 3474.6323055555563,
+          "predicted_return": -0.16112208943612838
+        }
+      }
+    },
+    {
+      "ticker": "8002.T",
+      "name": "丸紅",
+      "current_price": 5988.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2597.835347614756,
+          "predicted_return": -0.5661597615873821
+        },
+        "XGBoost": {
+          "predicted_price": 2551.6455078125,
+          "predicted_return": -0.5738735198974609
+        },
+        "Random Forest": {
+          "predicted_price": 2635.451443452381,
+          "predicted_return": -0.5598778484548461
+        }
+      }
+    },
+    {
+      "ticker": "4507.T",
+      "name": "塩野義製薬",
+      "current_price": 3562.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2572.812002965502,
+          "predicted_return": -0.27770578243528865
+        },
+        "XGBoost": {
+          "predicted_price": 2443.275146484375,
+          "predicted_return": -0.3140721321105957
+        },
+        "Random Forest": {
+          "predicted_price": 2506.0085593192266,
+          "predicted_return": -0.2964602584729852
+        }
+      }
+    },
+    {
+      "ticker": "8591.T",
+      "name": "オリックス",
+      "current_price": 4704.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3238.8230652384273,
+          "predicted_return": -0.31147468851223914
+        },
+        "XGBoost": {
+          "predicted_price": 3175.438232421875,
+          "predicted_return": -0.32494938373565674
+        },
+        "Random Forest": {
+          "predicted_price": 3171.2075952380947,
+          "predicted_return": -0.32584872550210575
+        }
+      }
+    },
+    {
+      "ticker": "7751.T",
+      "name": "キヤノン",
+      "current_price": 4488.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4239.305891350134,
+          "predicted_return": -0.055413125813250086
+        },
+        "XGBoost": {
+          "predicted_price": 4252.3916015625,
+          "predicted_return": -0.05249738693237305
+        },
+        "Random Forest": {
+          "predicted_price": 4109.34316764812,
+          "predicted_return": -0.0843709519500625
+        }
+      }
+    },
+    {
+      "ticker": "6723.T",
+      "name": "ルネサスエレクトロニクス",
+      "current_price": 2271.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2107.139729238955,
+          "predicted_return": -0.07235759223466642
+        },
+        "XGBoost": {
+          "predicted_price": 2032.1787109375,
+          "predicted_return": -0.10535824298858643
+        },
+        "Random Forest": {
+          "predicted_price": 2253.440660624098,
+          "predicted_return": -0.007950402542769908
+        }
+      }
+    },
+    {
+      "ticker": "9020.T",
+      "name": "JR東日本",
+      "current_price": 3640.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2987.702394511833,
+          "predicted_return": -0.17920263887037557
+        },
+        "XGBoost": {
+          "predicted_price": 3155.78466796875,
+          "predicted_return": -0.13302618265151978
+        },
+        "Random Forest": {
+          "predicted_price": 3128.128720089907,
+          "predicted_return": -0.14062397799727833
+        }
+      }
+    },
+    {
+      "ticker": "8725.T",
+      "name": "MS&AD",
+      "current_price": 4136.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2712.2540485115223,
+          "predicted_return": -0.34423258014711744
+        },
+        "XGBoost": {
+          "predicted_price": 2639.62646484375,
+          "predicted_return": -0.3617924451828003
+        },
+        "Random Forest": {
+          "predicted_price": 2671.112061889473,
+          "predicted_return": -0.35417986898223575
+        }
+      }
+    },
+    {
+      "ticker": "4911.T",
+      "name": "資生堂",
+      "current_price": 3385.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4136.246501871362,
+          "predicted_return": 0.22193397396495174
+        },
+        "XGBoost": {
+          "predicted_price": 3918.774169921875,
+          "predicted_return": 0.15768814086914062
+        },
+        "Random Forest": {
+          "predicted_price": 3826.5959211899194,
+          "predicted_return": 0.13045669754502787
+        }
+      }
+    },
+    {
+      "ticker": "1925.T",
+      "name": "大和ハウス工業",
+      "current_price": 5007.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4415.8753574518005,
+          "predicted_return": -0.11805964500663058
+        },
+        "XGBoost": {
+          "predicted_price": 4289.59521484375,
+          "predicted_return": -0.14328038692474365
+        },
+        "Random Forest": {
+          "predicted_price": 4412.917203112676,
+          "predicted_return": -0.11865044874921582
+        }
+      }
+    },
+    {
+      "ticker": "4528.T",
+      "name": "小野薬品工業",
+      "current_price": 2532.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2601.8947475252817,
+          "predicted_return": 0.027401677206429165
+        },
+        "XGBoost": {
+          "predicted_price": 2529.321044921875,
+          "predicted_return": -0.0012552738189697266
+        },
+        "Random Forest": {
+          "predicted_price": 2547.2601955576706,
+          "predicted_return": 0.005828310190590491
+        }
+      }
+    },
+    {
+      "ticker": "7011.T",
+      "name": "三菱重工業",
+      "current_price": 4803.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1324.269336744247,
+          "predicted_return": -0.7242828780461696
+        },
+        "XGBoost": {
+          "predicted_price": 1296.8634033203125,
+          "predicted_return": -0.7299888730049133
+        },
+        "Random Forest": {
+          "predicted_price": 1306.6593463904974,
+          "predicted_return": -0.7279493345012498
+        }
+      }
+    },
+    {
+      "ticker": "8802.T",
+      "name": "三菱地所",
+      "current_price": 4454.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2852.927507370578,
+          "predicted_return": -0.3594684536662375
+        },
+        "XGBoost": {
+          "predicted_price": 2832.4052734375,
+          "predicted_return": -0.36407607793807983
+        },
+        "Random Forest": {
+          "predicted_price": 2873.5539484126984,
+          "predicted_return": -0.35483746106585123
+        }
+      }
+    },
+    {
+      "ticker": "6301.T",
+      "name": "小松製作所",
+      "current_price": 6493.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3900.4823350840456,
+          "predicted_return": -0.3992788641484606
+        },
+        "XGBoost": {
+          "predicted_price": 3896.62744140625,
+          "predicted_return": -0.3998725414276123
+        },
+        "Random Forest": {
+          "predicted_price": 4028.2005815295797,
+          "predicted_return": -0.3796087199245989
+        }
+      }
+    },
+    {
+      "ticker": "8801.T",
+      "name": "三井不動産",
+      "current_price": 1692.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1518.7012047558574,
+          "predicted_return": -0.10268761905119206
+        },
+        "XGBoost": {
+          "predicted_price": 1586.83203125,
+          "predicted_return": -0.062433063983917236
+        },
+        "Random Forest": {
+          "predicted_price": 1600.8060008845036,
+          "predicted_return": -0.054176661220381894
+        }
+      }
+    },
+    {
+      "ticker": "6762.T",
+      "name": "TDK",
+      "current_price": 2011.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1537.6074968582398,
+          "predicted_return": -0.23559159987161826
+        },
+        "XGBoost": {
+          "predicted_price": 1521.9356689453125,
+          "predicted_return": -0.24338269233703613
+        },
+        "Random Forest": {
+          "predicted_price": 1574.278933021182,
+          "predicted_return": -0.21736070941029983
+        }
+      }
+    },
+    {
+      "ticker": "9735.T",
+      "name": "セコム",
+      "current_price": 6123.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 5388.2395622085005,
+          "predicted_return": -0.12000007149950997
+        },
+        "XGBoost": {
+          "predicted_price": 5394.42919921875,
+          "predicted_return": -0.11898916959762573
+        },
+        "Random Forest": {
+          "predicted_price": 5658.96518849206,
+          "predicted_return": -0.0757855318484304
+        }
+      }
+    },
+    {
+      "ticker": "7201.T",
+      "name": "日産自動車",
+      "current_price": 355.2999878,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 500.46010746822907,
+          "predicted_return": 0.40855650057027404
+        },
+        "XGBoost": {
+          "predicted_price": 536.9978637695312,
+          "predicted_return": 0.5113928318023682
+        },
+        "Random Forest": {
+          "predicted_price": 508.99355675895,
+          "predicted_return": 0.43257409016705295
+        }
+      }
+    },
+    {
+      "ticker": "2502.T",
+      "name": "アサヒグループHD",
+      "current_price": 1640.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1479.7734001715173,
+          "predicted_return": -0.0976991462368797
+        },
+        "XGBoost": {
+          "predicted_price": 1529.8935546875,
+          "predicted_return": -0.06713807582855225
+        },
+        "Random Forest": {
+          "predicted_price": 1468.7897542052372,
+          "predicted_return": -0.10439649133827
+        }
+      }
+    },
+    {
+      "ticker": "5401.T",
+      "name": "日本製鉄",
+      "current_price": 585.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 628.261563112127,
+          "predicted_return": 0.07395138993525974
+        },
+        "XGBoost": {
+          "predicted_price": 631.164794921875,
+          "predicted_return": 0.07891416549682617
+        },
+        "Random Forest": {
+          "predicted_price": 739.4361061754985,
+          "predicted_return": 0.26399334388974105
+        }
+      }
+    },
+    {
+      "ticker": "2802.T",
+      "name": "味の素",
+      "current_price": 4612.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2772.32212089052,
+          "predicted_return": -0.3988893926950303
+        },
+        "XGBoost": {
+          "predicted_price": 2736.197021484375,
+          "predicted_return": -0.4067222476005554
+        },
+        "Random Forest": {
+          "predicted_price": 2780.7124384150297,
+          "predicted_return": -0.39707015645814625
+        }
+      }
+    },
+    {
+      "ticker": "9434.T",
+      "name": "ソフトバンク",
+      "current_price": 218.8000031,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 200.23275555831282,
+          "predicted_return": -0.08485944825696023
+        },
+        "XGBoost": {
+          "predicted_price": 197.00160217285156,
+          "predicted_return": -0.09962707757949829
+        },
+        "Random Forest": {
+          "predicted_price": 199.37966325831442,
+          "predicted_return": -0.08875840752529485
+        }
+      }
+    },
+    {
+      "ticker": "4307.T",
+      "name": "野村総合研究所",
+      "current_price": 4451.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4113.7112341713355,
+          "predicted_return": -0.0757781994672353
+        },
+        "XGBoost": {
+          "predicted_price": 4148.787109375,
+          "predicted_return": -0.0678977370262146
+        },
+        "Random Forest": {
+          "predicted_price": 4204.277353995631,
+          "predicted_return": -0.05543083486955047
+        }
+      }
+    },
+    {
+      "ticker": "4578.T",
+      "name": "大塚HD",
+      "current_price": 11220.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 6252.365600041777,
+          "predicted_return": -0.4427481639891464
+        },
+        "XGBoost": {
+          "predicted_price": 6157.80615234375,
+          "predicted_return": -0.4511759281158447
+        },
+        "Random Forest": {
+          "predicted_price": 6193.018189754687,
+          "predicted_return": -0.4480375944960172
+        }
+      }
+    },
+    {
+      "ticker": "1928.T",
+      "name": "積水ハウス",
+      "current_price": 3560.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3509.157025897228,
+          "predicted_return": -0.014281734298531523
+        },
+        "XGBoost": {
+          "predicted_price": 3491.144287109375,
+          "predicted_return": -0.019341468811035156
+        },
+        "Random Forest": {
+          "predicted_price": 3500.79808531746,
+          "predicted_return": -0.016629751315320296
+        }
+      }
+    },
+    {
+      "ticker": "8604.T",
+      "name": "野村HD",
+      "current_price": 1261.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 946.6679727078628,
+          "predicted_return": -0.24927202798742054
+        },
+        "XGBoost": {
+          "predicted_price": 941.8729858398438,
+          "predicted_return": -0.2530745267868042
+        },
+        "Random Forest": {
+          "predicted_price": 925.3355031273254,
+          "predicted_return": -0.2661891331266254
+        }
+      }
+    },
+    {
+      "ticker": "6273.T",
+      "name": "SMC",
+      "current_price": 61990.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 57538.78778277216,
+          "predicted_return": -0.07180532694350439
+        },
+        "XGBoost": {
+          "predicted_price": 58732.53125,
+          "predicted_return": -0.05254828929901123
+        },
+        "Random Forest": {
+          "predicted_price": 63901.12038317718,
+          "predicted_return": 0.03082949480847197
+        }
+      }
+    },
+    {
+      "ticker": "4452.T",
+      "name": "花王",
+      "current_price": 6140.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 6503.538869865712,
+          "predicted_return": 0.05920828499441555
+        },
+        "XGBoost": {
+          "predicted_price": 6500.5849609375,
+          "predicted_return": 0.058727145195007324
+        },
+        "Random Forest": {
+          "predicted_price": 5856.931841991342,
+          "predicted_return": -0.0461023058646024
+        }
+      }
+    },
+    {
+      "ticker": "4689.T",
+      "name": "LINEヤフー",
+      "current_price": 393.2000122,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 437.84908683243975,
+          "predicted_return": 0.11355308557246202
+        },
+        "XGBoost": {
+          "predicted_price": 436.1267395019531,
+          "predicted_return": 0.10917270183563232
+        },
+        "Random Forest": {
+          "predicted_price": 422.6812453053671,
+          "predicted_return": 0.07497770140040472
+        }
+      }
+    },
+    {
+      "ticker": "8630.T",
+      "name": "SOMPOHD",
+      "current_price": 6017.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3119.2752905456873,
+          "predicted_return": -0.4815896143351026
+        },
+        "XGBoost": {
+          "predicted_price": 3158.392822265625,
+          "predicted_return": -0.4750884175300598
+        },
+        "Random Forest": {
+          "predicted_price": 3177.75160370679,
+          "predicted_return": -0.47187109793804394
+        }
+      }
+    },
+    {
+      "ticker": "3407.T",
+      "name": "旭化成",
+      "current_price": 1560.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1229.0042167171339,
+          "predicted_return": -0.21217678415568342
+        },
+        "XGBoost": {
+          "predicted_price": 1257.7896728515625,
+          "predicted_return": -0.19372457265853882
+        },
+        "Random Forest": {
+          "predicted_price": 1221.8045538419913,
+          "predicted_return": -0.2167919526653902
+        }
+      }
+    },
+    {
+      "ticker": "6971.T",
+      "name": "京セラ",
+      "current_price": 2478.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1963.4585944636815,
+          "predicted_return": -0.20780367380928733
+        },
+        "XGBoost": {
+          "predicted_price": 1924.7037353515625,
+          "predicted_return": -0.22344011068344116
+        },
+        "Random Forest": {
+          "predicted_price": 1957.5939436778488,
+          "predicted_return": -0.21016988352719435
+        }
+      }
+    },
+    {
+      "ticker": "6869.T",
+      "name": "シスメックス",
+      "current_price": 1430.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2651.5306501021696,
+          "predicted_return": 0.854217237833685
+        },
+        "XGBoost": {
+          "predicted_price": 2671.490966796875,
+          "predicted_return": 0.8681755065917969
+        },
+        "Random Forest": {
+          "predicted_price": 2630.636964901352,
+          "predicted_return": 0.8396062691617845
+        }
+      }
+    },
+    {
+      "ticker": "9021.T",
+      "name": "JR西日本",
+      "current_price": 3192.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3099.2213665536156,
+          "predicted_return": -0.029065987921799596
+        },
+        "XGBoost": {
+          "predicted_price": 3092.658935546875,
+          "predicted_return": -0.031121909618377686
+        },
+        "Random Forest": {
+          "predicted_price": 3116.3425686205637,
+          "predicted_return": -0.023702202813106643
+        }
+      }
+    },
+    {
+      "ticker": "3402.T",
+      "name": "東レ",
+      "current_price": 1130.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1015.7973919190272,
+          "predicted_return": -0.10146183819634924
+        },
+        "XGBoost": {
+          "predicted_price": 1001.4520874023438,
+          "predicted_return": -0.11415117979049683
+        },
+        "Random Forest": {
+          "predicted_price": 1009.6528031235069,
+          "predicted_return": -0.10689712240291294
+        }
+      }
+    },
+    {
+      "ticker": "7270.T",
+      "name": "SUBARU",
+      "current_price": 2538.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2862.74911849284,
+          "predicted_return": 0.12773256588254478
+        },
+        "XGBoost": {
+          "predicted_price": 2886.77490234375,
+          "predicted_return": 0.13719713687896729
+        },
+        "Random Forest": {
+          "predicted_price": 3021.159304863641,
+          "predicted_return": 0.19013563319426474
+        }
+      }
+    },
+    {
+      "ticker": "6701.T",
+      "name": "NEC",
+      "current_price": 4046.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2178.6377875641388,
+          "predicted_return": -0.4615329244774744
+        },
+        "XGBoost": {
+          "predicted_price": 2159.723388671875,
+          "predicted_return": -0.46620774269104004
+        },
+        "Random Forest": {
+          "predicted_price": 2260.551402958154,
+          "predicted_return": -0.4412873447953154
+        }
+      }
+    },
+    {
+      "ticker": "5802.T",
+      "name": "住友電気工業",
+      "current_price": 9400.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2324.2407847341315,
+          "predicted_return": -0.7527403420495604
+        },
+        "XGBoost": {
+          "predicted_price": 2267.38427734375,
+          "predicted_return": -0.7587889432907104
+        },
+        "Random Forest": {
+          "predicted_price": 2239.4381119228,
+          "predicted_return": -0.7617619029869361
+        }
+      }
+    },
+    {
+      "ticker": "2503.T",
+      "name": "キリンHD",
+      "current_price": 2540.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2332.278232750545,
+          "predicted_return": -0.08178022332655699
+        },
+        "XGBoost": {
+          "predicted_price": 2268.93017578125,
+          "predicted_return": -0.10672038793563843
+        },
+        "Random Forest": {
+          "predicted_price": 2314.8590823276563,
+          "predicted_return": -0.08863815656391483
+        }
+      }
+    },
+    {
+      "ticker": "4188.T",
+      "name": "三菱ケミカルG",
+      "current_price": 921.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 880.3209574551475,
+          "predicted_return": -0.04416834152535554
+        },
+        "XGBoost": {
+          "predicted_price": 870.4324951171875,
+          "predicted_return": -0.0549049973487854
+        },
+        "Random Forest": {
+          "predicted_price": 890.2299143853068,
+          "predicted_return": -0.03340943063484614
+        }
+      }
+    },
+    {
+      "ticker": "5020.T",
+      "name": "ENEOS",
+      "current_price": 1463.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 691.198079439135,
+          "predicted_return": -0.527547450827659
+        },
+        "XGBoost": {
+          "predicted_price": 675.2352905273438,
+          "predicted_return": -0.5384584665298462
+        },
+        "Random Forest": {
+          "predicted_price": 695.9640770395672,
+          "predicted_return": -0.524289762789086
+        }
+      }
+    },
+    {
+      "ticker": "9101.T",
+      "name": "日本郵船",
+      "current_price": 6164.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4155.332801224865,
+          "predicted_return": -0.3258707330913587
+        },
+        "XGBoost": {
+          "predicted_price": 4108.5595703125,
+          "predicted_return": -0.3334588408470154
+        },
+        "Random Forest": {
+          "predicted_price": 4320.304532828283,
+          "predicted_return": -0.2991069868870403
+        }
+      }
+    },
+    {
+      "ticker": "9104.T",
+      "name": "商船三井",
+      "current_price": 6766.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4655.023254520973,
+          "predicted_return": -0.3119977454151681
+        },
+        "XGBoost": {
+          "predicted_price": 4510.34814453125,
+          "predicted_return": -0.33338040113449097
+        },
+        "Random Forest": {
+          "predicted_price": 4635.687900613275,
+          "predicted_return": -0.31485546842842527
+        }
+      }
+    },
+    {
+      "ticker": "9107.T",
+      "name": "川崎汽船",
+      "current_price": 2698.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2030.5946201449106,
+          "predicted_return": -0.24737041506860247
+        },
+        "XGBoost": {
+          "predicted_price": 1939.1610107421875,
+          "predicted_return": -0.28125983476638794
+        },
+        "Random Forest": {
+          "predicted_price": 2048.0797951011054,
+          "predicted_return": -0.24088962375792977
+        }
+      }
+    },
+    {
+      "ticker": "4503.T",
+      "name": "アステラス製薬",
+      "current_price": 2587.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1943.0513631673211,
+          "predicted_return": -0.2489171383195512
+        },
+        "XGBoost": {
+          "predicted_price": 1957.380126953125,
+          "predicted_return": -0.2433784008026123
+        },
+        "Random Forest": {
+          "predicted_price": 2085.446825396825,
+          "predicted_return": -0.19387443935182647
+        }
+      }
+    },
+    {
+      "ticker": "6645.T",
+      "name": "オムロン",
+      "current_price": 4428.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 4353.701193780816,
+          "predicted_return": -0.0167793148643145
+        },
+        "XGBoost": {
+          "predicted_price": 4419.0751953125,
+          "predicted_return": -0.002015531063079834
+        },
+        "Random Forest": {
+          "predicted_price": 4341.866330011899,
+          "predicted_return": -0.019452048326129456
+        }
+      }
+    },
+    {
+      "ticker": "7202.T",
+      "name": "いすゞ自動車",
+      "current_price": 2288.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2069.0157733873566,
+          "predicted_return": -0.09570988925377766
+        },
+        "XGBoost": {
+          "predicted_price": 2031.231201171875,
+          "predicted_return": -0.11222410202026367
+        },
+        "Random Forest": {
+          "predicted_price": 2061.6374175595233,
+          "predicted_return": -0.0989346951225859
+        }
+      }
+    },
+    {
+      "ticker": "8308.T",
+      "name": "りそなHD",
+      "current_price": 1823.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 919.9560936869509,
+          "predicted_return": -0.49536144065444276
+        },
+        "XGBoost": {
+          "predicted_price": 906.8828125,
+          "predicted_return": -0.5025327205657959
+        },
+        "Random Forest": {
+          "predicted_price": 957.8723072398348,
+          "predicted_return": -0.4745626400220325
+        }
+      }
+    },
+    {
+      "ticker": "8309.T",
+      "name": "三井住友トラストHD",
+      "current_price": 5123.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3249.09075522195,
+          "predicted_return": -0.36578357305837395
+        },
+        "XGBoost": {
+          "predicted_price": 3169.47412109375,
+          "predicted_return": -0.3813245892524719
+        },
+        "Random Forest": {
+          "predicted_price": 3248.3937651515157,
+          "predicted_return": -0.3659196242140317
+        }
+      }
+    },
+    {
+      "ticker": "9202.T",
+      "name": "ANA HD",
+      "current_price": 2943.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2962.7114356689394,
+          "predicted_return": 0.006697735531409954
+        },
+        "XGBoost": {
+          "predicted_price": 2966.80615234375,
+          "predicted_return": 0.008089065551757812
+        },
+        "Random Forest": {
+          "predicted_price": 3016.9231520696776,
+          "predicted_return": 0.025118298358707936
+        }
+      }
+    },
+    {
+      "ticker": "9201.T",
+      "name": "日本航空",
+      "current_price": 2628.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 2824.7329750180184,
+          "predicted_return": 0.07465587788397121
+        },
+        "XGBoost": {
+          "predicted_price": 2822.311767578125,
+          "predicted_return": 0.07373476028442383
+        },
+        "Random Forest": {
+          "predicted_price": 2859.3773318136896,
+          "predicted_return": 0.08783615438983805
+        }
+      }
+    },
+    {
+      "ticker": "7733.T",
+      "name": "オリンパス",
+      "current_price": 1550.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1715.1998454744396,
+          "predicted_return": 0.1065805454673805
+        },
+        "XGBoost": {
+          "predicted_price": 1593.0797119140625,
+          "predicted_return": 0.027793407440185547
+        },
+        "Random Forest": {
+          "predicted_price": 1747.4364326612392,
+          "predicted_return": 0.1273783436524123
+        }
+      }
+    },
+    {
+      "ticker": "4385.T",
+      "name": "メルカリ",
+      "current_price": 3963.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 3318.0224889341785,
+          "predicted_return": -0.16274981354171625
+        },
+        "XGBoost": {
+          "predicted_price": 3300.84765625,
+          "predicted_return": -0.16708362102508545
+        },
+        "Random Forest": {
+          "predicted_price": 3320.3545710435196,
+          "predicted_return": -0.1621613497240677
+        }
+      }
+    },
+    {
+      "ticker": "2413.T",
+      "name": "エムスリー",
+      "current_price": 1624.5,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 1751.2994316750187,
+          "predicted_return": 0.0780544362419322
+        },
+        "XGBoost": {
+          "predicted_price": 1804.9801025390625,
+          "predicted_return": 0.11109888553619385
+        },
+        "Random Forest": {
+          "predicted_price": 1817.719313696513,
+          "predicted_return": 0.11894079021022641
+        }
+      }
+    },
+    {
+      "ticker": "6857.T",
+      "name": "アドバンテスト",
+      "current_price": 21555.0,
+      "models": {
+        "LightGBM": {
+          "predicted_price": 6232.503052275497,
+          "predicted_return": -0.7108558082915566
+        },
+        "XGBoost": {
+          "predicted_price": 5810.1728515625,
+          "predicted_return": -0.7304489612579346
+        },
+        "Random Forest": {
+          "predicted_price": 6033.675990079368,
+          "predicted_return": -0.7200799819030681
+        }
+      }
+    }
+  ]
+}
