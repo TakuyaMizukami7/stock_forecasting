@@ -804,8 +804,9 @@ def main():
             "**上昇が期待される業界・企業**と**下落が懸念される業界・企業**を一目で確認できます。"
         )
 
-        col_run, col_info = st.columns([1, 3])
+        col_run, col_clear, col_info = st.columns([1, 1, 2])
         run_analysis = col_run.button("🔄 今日の分析を実行", key="run_sentiment", type="primary")
+        clear_cache = col_clear.button("🗑 キャッシュをクリア", key="clear_news_cache")
         col_info.caption(
             f"📅 分析基準日時: {datetime.now().strftime('%Y年%m月%d日 %H:%M')} / "
             "同じ日の2回目以降は**キャッシュ**から即時表示されます"
@@ -815,6 +816,10 @@ def main():
         def cached_sentiment_analysis():
             from news_sentiment import run_sentiment_analysis
             return run_sentiment_analysis()
+
+        if clear_cache:
+            cached_sentiment_analysis.clear()
+            st.toast("ニュース分析のキャッシュをクリアしました。再度実行してください。")
 
         if run_analysis:
             with st.spinner("📰 本日のニュースを収集してAIが分析中... (20〜40秒)"):
