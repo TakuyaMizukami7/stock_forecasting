@@ -112,7 +112,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.env*
+!.env.example
 .venv
 env/
 venv/
@@ -153,10 +154,13 @@ cython_debug/
 # Local configuration
 credentials.json
 .streamlit/secrets.toml
+secrets_for_streamlit_cloud.txt
+convert_secrets.py
 
 # Logs and large data
 *.json
 *.csv
+!stock_historical.csv
 !app_config.json
 !TICKERS.json
 !requirements.txt

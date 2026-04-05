@@ -82,19 +82,69 @@ def fetch_latest_data_manual(ticker, data_file="stock_historical.csv"):
         return False, f"エラーが発生しました: {e}"
 
 def get_stock_data(ticker, period="10y", start=None, end=None):
-    """高速化のため、ローカルのCSVファイルのみからデータを読み込みます"""
+    """ローカルのCSVファイルからデータを読み込みます。欠落している場合は yfinance から取得します。"""
     try:
         data_file = "stock_historical.csv"
-        if not os.path.exists(data_file):
-            return None
-            
-        df_hist_all = pd.read_csv(data_file)
-        df_hist = df_hist_all[df_hist_all['Ticker'] == ticker].copy()
+        df_hist = pd.DataFrame()
         
+        # 1. ローカルCSVからの読み込み
+        if os.path.exists(data_file):
+            try:
+                df_hist_all = pd.read_csv(data_file)
+                df_hist = df_hist_all[df_hist_all['Ticker'] == ticker].copy()
+            except Exception as e:
+                print(f"CSV読み込みエラー: {e}")
+
+        # 2. データが空の場合に yfinance から取得 (フォールバック)
+        if df_hist.empty:
+            print(f"  [フォールバック] {ticker} のデータを yfinance から取得中 ({period})...")
+            try:
+                df_yf = yf.download(ticker, period=period, progress=False)
+                if not df_yf.empty:
+                    # MultiIndex 解除
+                    if isinstance(df_yf.columns, pd.MultiIndex):
+                        try:
+                            # Tickerレベルが存在する場合は抽出、そうでなければ単にドロップ
+                            if ticker in df_yf.columns.get_level_values(1):
+                                df_yf = df_yf.xs(ticker, axis=1, level=1)
+                            else:
+                                df_yf.columns = df_yf.columns.droplevel(1)
+                        except Exception:
+                            pass
+                    
+                    df_yf.reset_index(inplace=True)
+                    if 'index' in df_yf.columns:
+                        df_yf.rename(columns={'index': 'Date'}, inplace=True)
+                    df_yf['Ticker'] = ticker
+                    df_yf['Date'] = pd.to_datetime(df_yf['Date']).dt.tz_localize(None)
+                    
+                    # 必要な列のみ選択
+                    cols = ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close', 'Volume']
+                    df_yf = df_yf[[c for c in cols if c in df_yf.columns]]
+
+                    # キャッシュとしてCSVに保存
+                    if os.path.exists(data_file):
+                        df_all = pd.read_csv(data_file)
+                        df_combined = pd.concat([df_all, df_yf], ignore_index=True)
+                        df_combined['Date'] = pd.to_datetime(df_combined['Date']).dt.tz_localize(None)
+                        df_combined = df_combined.drop_duplicates(subset=['Date', 'Ticker'], keep='last')
+                        df_combined.to_csv(data_file, index=False)
+                    else:
+                        df_yf.to_csv(data_file, index=False)
+                    
+                    df_hist = df_yf.copy()
+            except Exception as e:
+                print(f"yfinance フォールバックエラー: {e}")
+
         if df_hist.empty:
             return None
             
+        # 以降は共通の処理
         df_hist['Date'] = pd.to_datetime(df_hist['Date'])
+        # tz-awareな場合は統一のためにnaiveにする
+        if df_hist['Date'].dt.tz is not None:
+            df_hist['Date'] = df_hist['Date'].dt.tz_localize(None)
+            
         df_hist.set_index('Date', inplace=True)
         df_hist.drop(columns=['Ticker'], inplace=True, errors='ignore')
         df_hist = df_hist.sort_index()

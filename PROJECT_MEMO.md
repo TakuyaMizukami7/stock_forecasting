@@ -29,8 +29,16 @@
     1. セッション開始時に必ずこの `PROJECT_MEMO.md` を確認し、前提知識を揃えること。
     2. Pythonスクリプトやコマンドの実行は、必ず**仮想環境（`.venv`）上**で行うこと。（例: `.\.venv\Scripts\python script.py`）。
     3. 実装や改修を行ったチャットの最後には、必ずこのドキュメントの実装内容や履歴をアップデートすること。
+*   **2026-04-05 (Streamlit Cloud でのデータ取得エラー修正)**:
+    1. **Git 管理対象の調整**: `.gitignore` を修正し、機械学習モデルの学習に必須となる 10年分の株価データ `stock_historical.csv` (約16MB) を Git の追跡対象に含めるように変更。これにより、GitHub 経由でのデプロイ時に Cloud 環境へデータが供給されるように改善。
+    2. **データ取得ロジックの強化**: `model_utils.py` の `get_stock_data` 関数を、ローカル CSV にデータがない場合に `yfinance` から自動でフォールバック取得し、CSV にキャッシュ保存する仕様にアップグレード。
 ---
 ### 更新履歴
+*   **2026-04-04 (Streamlit Cloud へのデプロイ完了とトラブルシューティング)**:
+    1. **GitHub リポジトリの作成とプッシュ**: 存在しないリポジトリへの `git push` による `Repository not found` エラーを解決するため、ブラウザでリポジトリを手動作成する手順を案内し、`--force` オプションでの初回同期の競合を解決。
+    2. **Secrets 管理用スクリプトの作成**: TOMLにおける複数行文字列（`\n`）のフォーマットエラー（Invalid format）を確実に防止するため、`credentials.json` から正確な `secrets.toml` 形式を出力する専用スクリプト `convert_secrets.py` を作成。生成された `secrets_for_streamlit_cloud.txt` をそのままコピペするだけで安全にデプロイできる設計に改善。
+    3. **Python ランタイム要件の策定**: `LightGBM`, `XGBoost`, `Pandas 2.0+` などの最新の動作環境を考慮し、Streamlit Cloud 側での Python バージョンを **3.11 または 3.12** に指定するよう取り決めを行った。
+
 *   **2026-04-04 (Streamlit Cloud への公開準備)**:
     1. **GitHub リポジトリの構成最適化**: `requirements.txt` の整理、`.gitignore` による機密データ(`credentials.json`, `.env`)の除外設定、および `README.md` の作成を実施。
     2. **Secrets 管理への対応**: `sheets_db.py` が既に対応している `st.secrets` (gcp_service_account, SPREADSHEET_ID) を利用。外部公開時はファイルをアップロードせず、Streamlit Cloud の管理パネルから JSON を直接入力する構成を推奨。
