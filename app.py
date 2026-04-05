@@ -621,6 +621,7 @@ def main():
 
             if result.get("error"):
                 st.error(f"❌ エラー: {result['error']}")
+                cached_sentiment_analysis.clear() # エラー時はキャッシュを破棄して再試行可能にする
             else:
                 analysis = result["analysis"]
                 news_list = result["news"]
