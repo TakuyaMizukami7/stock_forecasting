@@ -17,10 +17,27 @@ from openai import OpenAI
 # ──────────────────────────────────────────────────────────────────
 def get_openai_client() -> OpenAI | None:
     """
-    環境変数 OPENAI_API から OpenAI クライアントを生成する。
+    環境変数 または st.secrets から OpenAI クライアントを生成する。
     未設定の場合は None を返す。
     """
-    api_key = os.getenv("OPENAI_API")
+    # 1. 環境変数をチェック（.env用）
+    api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_API")
+    
+    # 2. Streamlit Cloud上の Secrets をチェック
+    if not api_key:
+        try:
+            import streamlit as st
+            if "OPENAI_API_KEY" in st.secrets:
+                api_key = st.secrets["OPENAI_API_KEY"]
+            elif "OPENAI_API" in st.secrets:
+                api_key = st.secrets["OPENAI_API"]
+        except ImportError:
+            pass
+        except FileNotFoundError:
+            pass
+        except Exception as e:
+            print(f"Secrets 読み込みエラー: {e}")
+
     if not api_key:
         return None
     return OpenAI(api_key=api_key)
@@ -148,7 +165,7 @@ def run_sentiment_analysis() -> dict:
         return {
             "news": [],
             "analysis": None,
-            "error": "環境変数 `OPENAI_API` が設定されていません。.env を確認してください。",
+            "error": "環境変数または Streamlit Secrets に `OPENAI_API_KEY` が設定されていません。",
         }
 
     news = fetch_today_news(max_items=20)

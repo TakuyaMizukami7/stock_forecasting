@@ -32,6 +32,8 @@
 *   **2026-04-05 (Streamlit Cloud でのデータ取得エラー修正)**:
     1. **Git 管理対象の調整**: `.gitignore` を修正し、機械学習モデルの学習に必須となる 10年分の株価データ `stock_historical.csv` (約16MB) を Git の追跡対象に含めるように変更。これにより、GitHub 経由でのデプロイ時に Cloud 環境へデータが供給されるように改善。
     2. **データ取得ロジックの強化**: `model_utils.py` の `get_stock_data` 関数を、ローカル CSV にデータがない場合に `yfinance` から自動でフォールバック取得し、CSV にキャッシュ保存する仕様にアップグレード。
+*   **2026-04-05 (OpenAI APIキー取得の不具合修正)**:
+    1. **Secrets連携の強化**: Streamlit Cloud環境において `os.getenv` で OpenAI API キーを取得できない問題（エラー: `OPENAI_API` が設定されていません）に対処するため、`news_sentiment.py` を改修。`os.getenv` に加え、`st.secrets` 内の `OPENAI_API_KEY` （または `OPENAI_API`）にもフォールバックして探索する堅牢な実装に変更した。
 ---
 ### 更新履歴
 *   **2026-04-04 (Streamlit Cloud へのデプロイ完了とトラブルシューティング)**:
