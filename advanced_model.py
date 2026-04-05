@@ -374,10 +374,26 @@ def train_and_predict(
     if not fast_mode:
         print(f"  [4/4] 予測完了！")
 
+    # ── 市場状況判定と最適モデル推薦 ─────────────────────────
+    try:
+        from market_advisor import get_market_condition
+        market_df_for_advice = get_market_features(period=period)
+        market_advice = get_market_condition(df, market_df_for_advice, sentiment)
+    except Exception as e:
+        print(f"  [market_advisor] 推薦処理エラー: {e}")
+        market_advice = {
+            "phase": "🟢 安定相場（均衡）",
+            "recommended_model": None,
+            "confidence": "低（3モデルが拮抗）",
+            "reason": "市場状況の判定中にエラーが発生しました。3つすべてのモデルの予測を参考にしてください。",
+            "indicators": {},
+        }
+
     return {
         "current_price": current_price,
         "news_sentiment": sentiment,
         "n_train": len(X_train),
         "n_test": len(X_test),
-        "models": results
+        "models": results,
+        "market_advice": market_advice,
     }

@@ -370,19 +370,70 @@ def main():
                         else:
                             st.info("➡️ 横ばい")
 
-                # ── 精度指標 ──────────────────────────────────
+                # ── 市場状況に基づくモデル推薦 ────────────────────────
                 st.markdown("---")
-                st.subheader("🎯 モデル検証精度（過去データの直近20%で評価）")
-                metrics_data = []
-                for m_name, m_res in result["models"].items():
-                    ui = MODEL_UI.get(m_name, {"title": m_name})
-                    metrics_data.append({
-                        "キャラクター (モデル)": f"{ui['title']} ({m_name})",
-                        "方向正解率": f"{m_res['direction_accuracy']*100:.1f}%",
-                        "MAE (平均絶対誤差)": f"¥{m_res['mae']:,.1f}",
-                        "RMSE": f"¥{m_res['rmse']:,.1f}"
-                    })
-                st.dataframe(pd.DataFrame(metrics_data), hide_index=True)
+                st.subheader("🧭 AIが推薦する最適モデル（今日の市場状況より）")
+
+                advice = result.get("market_advice", {})
+                phase = advice.get("phase", "不明")
+                recommended_model_key = advice.get("recommended_model")
+                reason = advice.get("reason", "")
+                confidence = advice.get("confidence", "")
+                indicators = advice.get("indicators", {})
+
+                # 市場フェーズ表示
+                st.markdown(f"**現在の市場フェーズ**: {phase}")
+
+                # 指標の詳細
+                if indicators:
+                    ind_parts = []
+                    if "vix" in indicators:
+                        ind_parts.append(f"VIX: {indicators['vix']:.1f}")
+                    if "rsi14" in indicators:
+                        ind_parts.append(f"RSI14: {indicators['rsi14']:.1f}")
+                    if "volatility_quantile" in indicators:
+                        ind_parts.append(f"20日ボラティリティ: 過去比 上位{int((1-indicators['volatility_quantile'])*100)}%")
+                    if "nikkei_deviation_pct" in indicators:
+                        ind_parts.append(f"日経乖離率: {indicators['nikkei_deviation_pct']:+.1f}%")
+                    if "news_sentiment" in indicators:
+                        ind_parts.append(f"ニュース感情: {indicators['news_sentiment']:+.3f}")
+                    if ind_parts:
+                        st.caption("  |  ".join(ind_parts))
+
+                if recommended_model_key and recommended_model_key in result.get("models", {}):
+                    rec_ui = MODEL_UI.get(recommended_model_key, {"title": recommended_model_key, "desc": ""})
+                    rec_res = result["models"][recommended_model_key]
+                    rec_price = rec_res["predicted_price"]
+                    rec_ret = rec_res["predicted_return"] * 100
+
+                    if rec_ret >= 5:
+                        border_color = "#28a745"
+                        arrow = "📈"
+                    elif rec_ret <= -5:
+                        border_color = "#dc3545"
+                        arrow = "📉"
+                    else:
+                        border_color = "#17a2b8"
+                        arrow = "➡️"
+
+                    st.markdown(
+                        f"""
+<div style="border: 2px solid {border_color}; border-radius: 12px; padding: 20px; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); margin: 8px 0;">
+    <h3 style="margin:0 0 4px 0;">{rec_ui['title']} を推薦！</h3>
+    <p style="margin:0 0 12px 0; opacity:0.7; font-size:0.9em;">{rec_ui['desc']}</p>
+    <p style="margin:0 0 8px 0;">💡 <strong>推薦理由：</strong>{reason}</p>
+    <hr style="opacity:0.3; margin: 12px 0;">
+    <p style="margin:0; font-size:1.1em;">{arrow} <strong>推薦モデルの予測：</strong> ¥{rec_price:,.1f}  （{rec_ret:+.2f}%）　｜　確信度目安: {confidence}</p>
+</div>
+""",
+                        unsafe_allow_html=True,
+                    )
+                else:
+                    st.info(
+                        f"📊 **{reason}**\n\n"
+                        "3つのモデルが拮抗しているため、各モデルの予測価格と誤差指標を比較して判断してください。"
+                    )
+
 
                 # ── ニュース感情スコア ─────────────────────────
                 st.markdown("---")
@@ -552,49 +603,199 @@ def main():
             st.info("上のボタンを押して100社の一括予測を実行してください。")
 
     with tab_new:
-        st.header("📊 モデル精度分析レポート (直近10年データ検証)")
-        st.markdown("現在の過去10年分の生データを用いて、3つの機械学習モデルを学習・検証（直近20%をテストに使用）した結果です。")
-        
+        st.header("📊 3つのAIモデル 徹底比較ガイド")
+        st.markdown(
+            "3つのモデルは**同じデータで学習しても得意・不得意なシーンが異なります**。"
+            "アーキテクチャの違いから生まれる特性を理解することで、「今の相場でどのモデルの予測を参考にすべきか」が分かります。"
+        )
+
+        st.markdown("---")
+
+        # ── レーダーチャート（特性比較）────────────────────────────
+        st.subheader("🕸 特性レーダーチャート（アーキテクチャ特性の比較）")
+        st.caption("各軸はアルゴリズムの理論的な特性を5段階でスコア化したものです（実測値ではなく設計上の特性スコア）。")
+
+        radar_categories = [
+            "トレンド<br>追従性", "急変への<br>反応速度", "ノイズ<br>耐性",
+            "安定性<br>(過学習耐性)", "レンジ相場<br>での精度"
+        ]
+
+        # 各モデルの特性スコア (0〜5)
+        scores = {
+            "🐆 LightGBM": [5, 5, 2, 3, 3],
+            "🦁 XGBoost":  [4, 3, 3, 5, 5],
+            "🐘 Random Forest": [2, 2, 5, 4, 3],
+        }
+        colors = ["#FF6B6B", "#FFD93D", "#6BCB77"]
+
+        fig_radar = go.Figure()
+        for (model_label, vals), color in zip(scores.items(), colors):
+            fig_radar.add_trace(go.Scatterpolar(
+                r=vals + [vals[0]],
+                theta=radar_categories + [radar_categories[0]],
+                fill="toself",
+                name=model_label,
+                line_color=color,
+                fillcolor=color,
+                opacity=0.25,
+            ))
+        fig_radar.update_layout(
+            polar=dict(
+                radialaxis=dict(visible=True, range=[0, 5], tickvals=[1,2,3,4,5]),
+            ),
+            showlegend=True,
+            height=420,
+            margin=dict(t=30, b=30),
+        )
+        st.plotly_chart(fig_radar, use_container_width=True)
+
+        st.markdown("---")
+
+        # ── 各モデル詳細カード ──────────────────────────────────────
+        st.subheader("🃏 各モデルの特性カード")
+
+        model_cards = [
+            {
+                "emoji": "🐆",
+                "name": "チーターくん",
+                "model": "LightGBM",
+                "color": "#FF6B6B",
+                "strongest": "強いトレンド・ニュース急変直後",
+                "weakest": "荒れすぎた相場・外れ値が多い局面",
+                "traits": [
+                    ("トレンド追従性", 5),
+                    ("急変への反応速度", 5),
+                    ("ノイズ耐性", 2),
+                    ("安定性", 3),
+                    ("レンジ相場精度", 3),
+                ],
+                "mechanism": "勾配ブースティングを葉単位で最適化する軽量な実装。直近の誤差を素早く修正しながら学習するため、**トレンドが出ている局面で最もアグレッシブな予測**を行います。",
+                "tips": [
+                    "日経平均が移動平均から大きく乖離している場面",
+                    "ポジティブ/ネガティブなニュースが出た直後",
+                    "特定業界全体が一斉に動いているトレンド局面",
+                ],
+            },
+            {
+                "emoji": "🦁",
+                "name": "ライオンくん",
+                "model": "XGBoost",
+                "color": "#FFD93D",
+                "strongest": "レンジ相場・テクニカルパターン",
+                "weakest": "急激な相場変動・ニュースによる急変",
+                "traits": [
+                    ("トレンド追従性", 4),
+                    ("急変への反応速度", 3),
+                    ("ノイズ耐性", 3),
+                    ("安定性", 5),
+                    ("レンジ相場精度", 5),
+                ],
+                "mechanism": "強力な正則化（L1/L2）と剪定機能で過学習を抑制する王道のブースティング手法。RSIやボリンジャーバンドなど**テクニカル指標の定型パターン**に強く、横ばい相場での堅実な予測を得意とします。",
+                "tips": [
+                    "RSIが中立域（40〜60）で方向感がない時",
+                    "VIXが低水準で安定した相場環境",
+                    "長期間レンジが続いている銘柄の短期予測",
+                ],
+            },
+            {
+                "emoji": "🐘",
+                "name": "ゾウさん",
+                "model": "Random Forest",
+                "color": "#6BCB77",
+                "strongest": "高ボラティリティ・荒れた局面",
+                "weakest": "強いトレンド（予測がマイルドになりがち）",
+                "traits": [
+                    ("トレンド追従性", 2),
+                    ("急変への反応速度", 2),
+                    ("ノイズ耐性", 5),
+                    ("安定性", 4),
+                    ("レンジ相場精度", 3),
+                ],
+                "mechanism": "数百の決定木の多数決で予測する安定重視型。一部の木が外れ値に引っ張られても**多数決で打ち消す設計**のため、急変動のノイズが多い荒れた相場でも極端な予測をせず最も安定します。",
+                "tips": [
+                    "VIX（恐怖指数）が25を超えている荒れた相場",
+                    "20日ボラティリティが過去比で上位25%以内",
+                    "相場全体が不安定で他のモデルが迷いがちな時",
+                ],
+            },
+        ]
+
+        cols = st.columns(3)
+        for col, card in zip(cols, model_cards):
+            with col:
+                st.markdown(
+                    f"""
+<div style="border: 2px solid {card['color']}; border-radius: 12px; padding: 16px; height: 100%;">
+    <h3 style="margin:0 0 4px 0; color: {card['color']};">{card['emoji']} {card['name']}</h3>
+    <p style="margin:0 0 8px 0; font-size:0.85em; opacity:0.7;">({card['model']})</p>
+    <hr style="opacity:0.3; margin:8px 0;">
+    <p style="margin:0 0 4px 0; font-size:0.9em;">✅ <strong>得意:</strong> {card['strongest']}</p>
+    <p style="margin:0 0 12px 0; font-size:0.9em;">⚠️ <strong>苦手:</strong> {card['weakest']}</p>
+</div>
+""",
+                    unsafe_allow_html=True,
+                )
+                st.markdown("<br>", unsafe_allow_html=True)
+
+                # 特性スコアバー
+                st.markdown("**特性スコア:**")
+                for trait_name, score in card["traits"]:
+                    filled = "🟩" * score + "⬜" * (5 - score)
+                    st.markdown(f"<small>{trait_name}: {filled}</small>", unsafe_allow_html=True)
+
+                # 仕組み説明
+                st.markdown("---")
+                st.markdown("**🔬 仕組みのポイント**")
+                st.markdown(f"<small>{card['mechanism']}</small>", unsafe_allow_html=True)
+
+                # 使いどきTips
+                st.markdown("---")
+                st.markdown("**📌 このモデルを参考にすべき場面**")
+                for tip in card["tips"]:
+                    st.markdown(f"<small>• {tip}</small>", unsafe_allow_html=True)
+
+        st.markdown("---")
+        st.subheader("📐 3モデルの精度比較（参考値）")
+        st.caption(
+            "3モデルの平均方向正解率・RMSEはいずれも近い値ですが、これは「平均的な相場で比べると差が出にくい」ためです。"
+            "特定の市場環境下でのパフォーマンス差（上記の得意・苦手）の方が実用的な判断基準になります。"
+        )
         try:
             import json
             with open("models_evaluation.json", "r", encoding="utf-8") as f:
                 eval_data = json.load(f)
-            
-            # --- 指標グラフ ---
-            models = ["LightGBM", "XGBoost", "Random Forest"]
-            avg_rmse = [eval_data[m]["avg_rmse"] for m in models]
-            avg_acc = [eval_data[m]["avg_dir_acc"] for m in models]
-            
-            col_acc, col_rmse = st.columns(2)
-            with col_acc:
-                fig_acc = go.Figure(data=[go.Bar(x=models, y=avg_acc, marker_color=['#1f77b4', '#ff7f0e', '#2ca02c'])])
-                fig_acc.update_layout(title="平均方向正解率 (%)", yaxis_range=[40, 60], height=300)
-                st.plotly_chart(fig_acc)
-            with col_rmse:
-                fig_err = go.Figure(data=[go.Bar(x=models, y=avg_rmse, marker_color=['#1f77b4', '#ff7f0e', '#2ca02c'])])
-                fig_err.update_layout(title="平均RMSE（予測誤差の目安 円）", height=300)
-                st.plotly_chart(fig_err)
-                
-            st.caption(f"※ 対象銘柄数: {eval_data['metadata']['evaluated_companies']} 社 / 最終評価日時: {eval_data['metadata']['timestamp'][:10]}")
-            
+            models_ev = ["LightGBM", "XGBoost", "Random Forest"]
+            labels = ["🐆 LightGBM", "🦁 XGBoost", "🐘 Random Forest"]
+            avg_acc = [eval_data[m]["avg_dir_acc"] for m in models_ev]
+            avg_rmse = [eval_data[m]["avg_rmse"] for m in models_ev]
+            col_acc2, col_rmse2 = st.columns(2)
+            with col_acc2:
+                fig_acc2 = go.Figure(data=[go.Bar(
+                    x=labels, y=avg_acc,
+                    marker_color=["#FF6B6B", "#FFD93D", "#6BCB77"],
+                    text=[f"{v:.1f}%" for v in avg_acc], textposition="outside"
+                )])
+                fig_acc2.update_layout(
+                    title="平均方向正解率（100社平均）",
+                    yaxis=dict(range=[40, 60], title="%"),
+                    height=300, margin=dict(t=40, b=10)
+                )
+                st.plotly_chart(fig_acc2, use_container_width=True)
+            with col_rmse2:
+                fig_rmse2 = go.Figure(data=[go.Bar(
+                    x=labels, y=avg_rmse,
+                    marker_color=["#FF6B6B", "#FFD93D", "#6BCB77"],
+                    text=[f"¥{v:,.0f}" for v in avg_rmse], textposition="outside"
+                )])
+                fig_rmse2.update_layout(
+                    title="平均RMSE（予測誤差の目安）",
+                    yaxis=dict(title="円"),
+                    height=300, margin=dict(t=40, b=10)
+                )
+                st.plotly_chart(fig_rmse2, use_container_width=True)
+            st.caption(f"※ 対象銘柄数: {eval_data['metadata']['evaluated_companies']} 社 / 評価日時: {eval_data['metadata']['timestamp'][:10]}")
         except FileNotFoundError:
             st.warning("事前評価用データ（models_evaluation.json）が見つかりません。")
-            
-        st.markdown("---")
-        st.subheader("📝 各モデルの特徴と得意なシーン（分析メモ）")
-        st.markdown(
-            "事前に検証した結果とアルゴリズムの性質から、各モデルには以下のような特徴が見られました。\n\n"
-            "#### 🐆 チーターくん (LightGBM)\n"
-            "- **得意な場面**: 株価が短期間で細かい上下を繰り返すときや、**ニュース等で相場が急変した直後**。\n"
-            "- **精度傾向**: 全体的な方向感（上がるか下がるか）を当てるのが得意で、直近のラグ特徴量やS&P500などの市場指標によく反応します。\n"
-            "- **弱点**: 学習速度は非常に速いですが、外れ値（異常な株価変動）に過剰に引っ張られることがあります。\n\n"
-            "#### 🦁 ライオンくん (XGBoost)\n"
-            "- **得意な場面**: RSIやボリンジャーバンドなど、**テクニカル指標の一定のパターン**が出たときに強い威力を発揮します。\n"
-            "- **精度傾向**: 誤差が少なく安定感があり、LightGBMと同様に高い方向正解率を誇ります。過学習を抑える仕組みが強く、**堅実な予測**を行います。\n\n"
-            "#### 🐘 ゾウさん (Random Forest)\n"
-            "- **得意な場面**: データにノイズが多く、他のモデルが迷ってしまうような**荒れた相場環境**。\n"
-            "- **精度傾向**: トレンドの外れ値に強く極端な予測をしないため大きな失敗は少ないですが、アンサンブル(平均化)の性質上、大きく上がる・下がるという変化をやや過小評価（マイルドに予測）しやすい傾向があります。方向の正答率はブースティング系(LGBM/XGB)より少し劣る傾向があります。"
-        )
 
     with tab2:
         st.header("🤖 AIセンチメント分析 - 本日のマーケット洞察")
